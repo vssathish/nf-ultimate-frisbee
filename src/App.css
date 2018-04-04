@@ -1,0 +1,144 @@
+/* general layout */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: hsl(0, 0%, 8%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+"Helvetica Neue", "Helvetica", "Arial", sans-serif
+}
+
+strong {
+  color: hsl(357, 92%, 47%);
+}
+
+.App {
+  text-align: center;
+}
+
+/* header and info */
+
+.header {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+.title {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.next-game {
+  margin-top: 0.5rem;
+}
+
+.details-link {
+  text-decoration: none;
+  color: hsl(357, 92%, 27%);
+  transition: color 0.2s;
+}
+
+.details-link:hover,
+.details-link:focus {
+  color: hsl(357, 92%, 47%);
+}
+
+/* signup form */
+
+.signup {
+  margin-bottom: 2rem;
+}
+
+input[type=text] {
+  display: inline-block;
+  width: 20rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: inset 0 1px 2px hsla(0, 0%, 8%, 0.1);
+  transition: border-color 0.2s;
+}
+
+input[type=text]:hover,
+input[type=text]:focus {
+  border-color: hsl(217, 71%, 33%);
+  outline: none;
+}
+
+#add {
+  border: 1px solid hsl(217, 71%, 33%);
+  border-radius: 0 3px 3px 0;
+  color: white;
+  padding: 0.5rem 1rem;
+  background-color: hsl(217, 71%, 33%);
+  font-size: 1rem;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+#add:focus,
+#add:hover {
+  cursor: pointer;
+  border-color: hsl(217, 71%, 53%);
+  background-color: hsl(217, 71%, 53%);
+  outline: none;
+}
+
+/* player list */
+
+.game-off,
+.game-on {
+  font-weight: normal;
+  margin: 2rem 0;
+}
+
+.game-on > strong {
+  color: hsl(217, 71%, 53%);
+}
+
+ol {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20rem;
+  list-style: none;
+}
+
+li {
+  text-align: left;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li span {
+  display: inline-block;
+  width: 18rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.remove {
+  width: 2rem;
+  text-align: right;
+  display: inline-block;
+  text-decoration: none;
+  color: hsla(357, 92%, 27%, 0.3);
+  transition: color 0.2s;
+}
+
+.remove:hover,
+.remove:focus {
+  color: hsl(357, 92%, 47%);
+}

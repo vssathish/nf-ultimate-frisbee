@@ -1,0 +1,83 @@
+const moment = require('moment-timezone');
+
+const DAYS = {
+    SUNDAY: 0,
+    MONDAY: 1,
+    TUESDAY: 2,
+    WEDNESDAY: 3,
+    THURSDAY: 4,
+    FRIDAY: 5,
+    SATURDAY: 6
+};
+
+const GAMES = [ // Should be sorted by day and then hour
+    { day: DAYS.WEDNESDAY, hour: 11 },
+    { day: DAYS.FRIDAY, hour: 11 }
+];
+
+const RESET_TIME = .15;
+
+/**
+ * Handles figuring out which game time is next and then formats it into a human
+ * readable string to display on the client.
+ * @param {MomentTimezone} mmt - The time to base determine the next game time.
+ * @return {string}
+ */
+const getNextGame = function(mmt) {
+    const currTime = parseFloat(mmt.format('HH.mm'));
+    const currDay = mmt.day();
+
+    // Find the first game that is upcoming or use the first game
+    const nextGame = GAMES.find(game => {
+      return currDay < game.day || (game.day === currDay && currTime < game.hour + RESET_TIME);
+    }) || GAMES[0];
+    const nextGameDay = nextGame.day < currDay ? nextGame.day + 7 : nextGame.day;
+    const nextGameMmt = mmt.day(nextGameDay).hour(nextGame.hour).minute(0);
+    const formattedNextGame = `${nextGameMmt.format('dddd, MMM Do YYYY')} at ${nextGameMmt.format('h:mm a')}`;
+
+    return formattedNextGame;
+};
+
+let testMmt;
+
+testMmt = moment("2017-06-25 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-26 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-27 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-28 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-28 11:14").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+console.log('Should switch to Friday')
+
+testMmt = moment("2017-06-28 11:15").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-29 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-30 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-06-30 11:14").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+console.log('Should switch to Wednesday')
+
+testMmt = moment("2017-06-30 11:15").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-07-01 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2017-07-02 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+module.exports = getNextGame;

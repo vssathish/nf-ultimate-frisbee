@@ -1,0 +1,39 @@
+{
+  "name": "nf-ultimate-frisbee",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.0.7"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "concurrently": "^3.5.0",
+    "events": "^1.1.1",
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "lodash": "^4.17.4",
+    "mobx": "^3.1.16",
+    "mobx-input": "^0.0.23",
+    "mobx-react": "^4.2.1",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "node-persist": "^2.1.0",
+    "nodemon": "^1.14.11",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-socket-io": "^0.2.4",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-react\" \"npm run start-node\" ",
+    "start-react": "react-scripts start",
+    "start-node": "nodemon --ignore 'src/*' server/server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://localhost:3001/"
+}
