@@ -44,6 +44,20 @@ strong {
   transition: color 0.2s;
 }
 
+.next-game-venue {
+  padding-top: 10px;
+}
+.next-game-venue .details-link{
+  color: hsl(217, 71%, 53%);
+}
+
+.next-game-venue .details-link:hover{
+  color: hsl(217, 71%, 53%);
+}
+ 
+
+
+
 .details-link:hover,
 .details-link:focus {
   color: hsl(357, 92%, 47%);

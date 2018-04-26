@@ -15,7 +15,7 @@ eb.on('next-game', (obj) => {
 
       let nextGame = obj.nextGame
       console.log('setting storage')
-      storage.setItemSync(nextGame, []);
+      storage.setItemSync(nextGame.time, []);
 
       io.emit('update', {
         players: [],
@@ -27,13 +27,13 @@ eb.on('next-game', (obj) => {
 
 app.post('/players/:name', function(req, res){
 
-    let players = storage.getItemSync(nextGame);
+    let players = storage.getItemSync(nextGame.time);
 
     console.log(nextGame)
     console.log(players)
 
     players.push(req.params.name)
-    storage.setItemSync(nextGame, players)
+    storage.setItemSync(nextGame.time, players)
 
     io.emit('update', {
       players: players,
@@ -48,7 +48,7 @@ app.get('/players', function(req, res){
     if (! nextGame) {
       nextGame = gm.getNextGame();
     }
-    let players = storage.getItemSync(nextGame)
+    let players = storage.getItemSync(nextGame.time)
 
     console.log(players)
 
@@ -64,9 +64,9 @@ app.get('/players', function(req, res){
 
 app.delete('/players/:name', function(req, res){
 
-    let players = storage.getItemSync(nextGame)
+    let players = storage.getItemSync(nextGame.time)
     players = _.without(players, req.params.name)
-    storage.setItemSync(nextGame, players)
+    storage.setItemSync(nextGame.time, players)
 
     io.emit('update', {
       players: players,
@@ -90,7 +90,7 @@ server.listen(3001, function(){
 
     if (! players) {
       console.log('Setting game on startup')
-      storage.setItemSync(nextGame, []);
+      storage.setItemSync(nextGame.time, []);
     } else {
       console.log('Game already setup')
     }

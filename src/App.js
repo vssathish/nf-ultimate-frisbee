@@ -49,13 +49,21 @@ class App extends Component {
   }
 
   render() {
+    const nextGame = store.nextGame || { venue: {}};
+    const venue = nextGame.venue;
     return (
       <div className="App">
         <header className="header">
             <h1 className="title">Netflix <strong>Ultimate</strong> Pickup</h1>
             <p className="next-game">
-              Next Game: <strong>{store.nextGame}</strong>&nbsp;
+              Next Game: <strong>{nextGame.time}</strong>&nbsp;
               (<a className="details-link" target="_blank" rel="noopener noreferrer" href="https://pickupultimate.com/map/view/netflix">Details</a>)
+            </p>
+            <p className="next-game-venue">
+              Venue: <strong>
+              {venue.name} - &nbsp;
+              </strong>
+              <a className="details-link" target="_blank" rel="noopener noreferrer" href={venue.map}>{venue.address}</a>
             </p>
         </header>
 
@@ -65,12 +73,12 @@ class App extends Component {
             <button id="add" onClick={ this.addPlayer }>Sign-Up</button>
           </div>
 
-          {store.players.length > 8 && (
-            <h2 className="game-on">The game is <strong>ON</strong> (Minimum 9)!</h2>
+          {store.players.length >= venue.min && (
+            <h2 className="game-on">The game is <strong>ON</strong> (Minimum {venue.min})!</h2>
           )}
 
-          {store.players.length <= 8 && (
-            <h2 className="game-off">Waiting for <strong>{ 9 - store.players.length }</strong> more players</h2>
+          {store.players.length < venue.min && (
+            <h2 className="game-off">Waiting for <strong>{ venue.min - store.players.length }</strong> more players</h2>
           )}
 
           <div>

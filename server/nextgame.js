@@ -11,9 +11,30 @@ const DAYS = {
 };
 
 const GAMES = [ // Should be sorted by day and then hour
-    { day: DAYS.WEDNESDAY, hour: 11 },
-    { day: DAYS.FRIDAY, hour: 11 }
+    { day: DAYS.WEDNESDAY, hour: 12, min: 0 },
+    { day: DAYS.THURSDAY, hour: 11, min: 45 },
+    { day: DAYS.FRIDAY, hour: 12, min: 0 }
 ];
+
+const JD_MORGAN = {
+    name: 'John D. Morgan Park',
+    address: 'Budd Ave, Campbell, CA 95008',
+    map: 'https://www.google.com/maps/@37.281233,-121.9568356,19z',
+    min: 8
+}
+
+const JACK_FISHER = {
+    name: 'Jack Fischer Park',
+    address: 'Abbott Ave & Pollard Road, Campbell, CA 95008',
+    map: 'https://goo.gl/maps/LukrVq8mEJq',
+    min: 6  
+}
+
+const VENUES = {
+    [DAYS.WEDNESDAY]: JD_MORGAN,
+    [DAYS.FRIDAY]: JD_MORGAN,
+    [DAYS.THURSDAY]: JACK_FISHER
+}
 
 const RESET_TIME = .15;
 
@@ -32,10 +53,13 @@ const getNextGame = function(mmt) {
       return currDay < game.day || (game.day === currDay && currTime < game.hour + RESET_TIME);
     }) || GAMES[0];
     const nextGameDay = nextGame.day < currDay ? nextGame.day + 7 : nextGame.day;
-    const nextGameMmt = mmt.day(nextGameDay).hour(nextGame.hour).minute(0);
+    const nextGameMmt = mmt.day(nextGameDay).hour(nextGame.hour).minute(nextGame.min);
     const formattedNextGame = `${nextGameMmt.format('dddd, MMM Do YYYY')} at ${nextGameMmt.format('h:mm a')}`;
 
-    return formattedNextGame;
+    return {
+        time: formattedNextGame,
+        venue: VENUES[nextGameDay]
+    }
 };
 
 let testMmt;
