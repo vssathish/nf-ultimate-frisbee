@@ -64,44 +64,44 @@ const getNextGame = function(mmt) {
 
 let testMmt;
 
-testMmt = moment("2017-06-25 09:30").tz('America/Los_Angeles');
+testMmt = moment("2018-04-26 12:30").tz('America/Los_Angeles');
 console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-26 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-26 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-27 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-27 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-28 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-28 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-28 11:14").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-28 11:14").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-console.log('Should switch to Friday')
+// console.log('Should switch to Friday')
 
-testMmt = moment("2017-06-28 11:15").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-28 11:15").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-29 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-29 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-30 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-30 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-06-30 11:14").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-30 11:14").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-console.log('Should switch to Wednesday')
+// console.log('Should switch to Wednesday')
 
-testMmt = moment("2017-06-30 11:15").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-06-30 11:15").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-07-01 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-07-01 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2017-07-02 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2017-07-02 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
 module.exports = getNextGame;

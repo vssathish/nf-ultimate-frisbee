@@ -8,12 +8,14 @@ var storage = require('node-persist');
 var gm = require('./game-player-manager')
 var eb = require('./event-bus.js')
 
+let nextGame = undefined;
+
 eb.on('next-game', (obj) => {
     console.log('clearing players')
 
-    if  (nextGame != obj.nextGame) {
+    if  (nextGame.time != obj.nextGame.time) {
 
-      let nextGame = obj.nextGame
+      nextGame = obj.nextGame
       console.log('setting storage')
       storage.setItemSync(nextGame.time, []);
 
@@ -86,7 +88,7 @@ server.listen(3001, function(){
 
   storage.init().then(function(){
     
-    let players = storage.getItemSync(nextGame)
+    let players = storage.getItemSync(nextGame.time)
 
     if (! players) {
       console.log('Setting game on startup')

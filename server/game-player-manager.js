@@ -10,7 +10,7 @@ class GameAndPlayerManager {
 
     this._options = options || {
       refreshIntervalMs: 60 * 1000 * 30  // 30 minute refresh interval
-      //refreshIntervalMs: 15 * 1000  // 15 secs refresh interval
+      // refreshIntervalMs: 5 * 1000  // 15 secs refresh interval
     };
 
     this.nextGame = ''

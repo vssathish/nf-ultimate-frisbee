@@ -20,9 +20,9 @@ let port = 3000;
 eb.on('next-game', (obj) => {
     console.log('clearing players')
 
-    if  (nextGame != obj.nextGame) {
+    if  (nextGame.time != obj.nextGame.time) {
 
-      let nextGame = obj.nextGame
+      nextGame = obj.nextGame
       console.log('setting storage')
       storage.setItemSync(nextGame.time, []);
 
@@ -102,7 +102,7 @@ server.listen(port, function(){
 
   storage.init().then(function(){
     
-    let players = storage.getItemSync(nextGame)
+    let players = storage.getItemSync(nextGame.time)
 
     if (! players) {
       console.log('Setting game on startup')
