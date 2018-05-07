@@ -52,23 +52,37 @@ const getNextGame = function(mmt) {
     const nextGame = GAMES.find(game => {
       return currDay < game.day || (game.day === currDay && currTime < game.hour + RESET_TIME);
     }) || GAMES[0];
+
     const nextGameDay = nextGame.day < currDay ? nextGame.day + 7 : nextGame.day;
+
     const nextGameMmt = mmt.day(nextGameDay).hour(nextGame.hour).minute(nextGame.min);
     const formattedNextGame = `${nextGameMmt.format('dddd, MMM Do YYYY')} at ${nextGameMmt.format('h:mm a')}`;
 
     return {
         time: formattedNextGame,
-        venue: VENUES[nextGameDay]
+        venue: VENUES[nextGame.day]
     }
 };
 
 let testMmt;
 
-testMmt = moment("2018-04-26 12:30").tz('America/Los_Angeles');
+testMmt = moment("2018-05-04 12:30").tz('America/Los_Angeles');
 console.log(getNextGame(testMmt));
 
-// testMmt = moment("2017-06-26 09:30").tz('America/Los_Angeles');
-// console.log(getNextGame(testMmt));
+testMmt = moment("2018-05-07 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2018-05-09 12:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2018-05-10 12:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2018-05-11 12:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
+
+testMmt = moment("2018-05-12 09:30").tz('America/Los_Angeles');
+console.log(getNextGame(testMmt));
 
 // testMmt = moment("2017-06-27 09:30").tz('America/Los_Angeles');
 // console.log(getNextGame(testMmt));
