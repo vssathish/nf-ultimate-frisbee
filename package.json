@@ -20,7 +20,7 @@
     "nodemon": "^1.14.11",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
     "react-socket-io": "^0.2.4",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3"
