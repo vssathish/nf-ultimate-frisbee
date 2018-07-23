@@ -15,7 +15,6 @@ var storage = require('node-persist');
 
 
 let players = [], nextGame = undefined;
-let port = 3000;
 
 eb.on('next-game', (obj) => {
     console.log('clearing players')
@@ -94,8 +93,10 @@ app.delete('/players/:name', function(req, res){
 
 })
 
-server.listen(port, function(){
-  console.log('server up and running on ' + port)
+
+
+server.listen(process.env.PORT || 3000, function(){
+  console.log('server up and running on ' + process.env.PORT || 3000)
   
   nextGame = gm.getNextGame();
   console.log('Next game on: ' + nextGame)
