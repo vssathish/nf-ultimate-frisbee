@@ -16,6 +16,7 @@
     "mobx-react": "^4.2.1",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+    "mongoose": "^5.2.5",
     "node-persist": "^2.1.0",
     "nodemon": "^1.14.11",
     "react": "^15.6.1",
@@ -26,7 +27,7 @@
     "socket.io-client": "^2.0.3"
   },
   "scripts": {
-    "start": "concurrently \"npm run start-react\" \"npm run start-node\" ",
+    "start": "env ENV=local concurrently \"npm run start-react\" \"npm run start-node\" ",
     "start-react": "react-scripts start",
     "start-node": "nodemon --ignore 'src/*' server/server.js",
     "build": "react-scripts build",

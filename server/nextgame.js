@@ -36,7 +36,7 @@ const VENUES = {
     [DAYS.THURSDAY]: JACK_FISHER
 }
 
-const RESET_TIME = .15;
+const RESET_TIME = .30;
 
 /**
  * Handles figuring out which game time is next and then formats it into a human
@@ -64,25 +64,25 @@ const getNextGame = function(mmt) {
     }
 };
 
-let testMmt;
+// let testMmt;
 
-testMmt = moment("2018-05-04 12:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-04 12:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2018-05-07 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-07 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2018-05-09 12:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-09 12:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2018-05-10 12:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-10 12:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2018-05-11 12:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-11 12:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
-testMmt = moment("2018-05-12 09:30").tz('America/Los_Angeles');
-console.log(getNextGame(testMmt));
+// testMmt = moment("2018-05-12 09:30").tz('America/Los_Angeles');
+// console.log(getNextGame(testMmt));
 
 // testMmt = moment("2017-06-27 09:30").tz('America/Los_Angeles');
 // console.log(getNextGame(testMmt));

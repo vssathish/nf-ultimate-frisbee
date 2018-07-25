@@ -1,102 +1,158 @@
-var app = require('express')();
-var server = require('http').createServer(app);
-var io = require('socket.io')(server);
 var _ = require('lodash')
-var moment = require('moment')
-var storage = require('node-persist');
+var compression = require('compression')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose');
+const express = require('express');
+const path = require('path');
+
+
+const app = express();
+app.use(compression())
+app.use(bodyParser.json())
+
+// WebSockets
+var server = require('http').createServer(app);  
+var io = require('socket.io')(server);
 
 var gm = require('./game-player-manager')
 var eb = require('./event-bus.js')
 
-let nextGame = undefined;
+// Mongoose Schema definition
+const MONGOLAB_URI='mongodb://nfUltimateUser:LetsP1ayFrisbee@ds145911.mlab.com:45911/nf-ultimate-frisbee';
+const Schema = new mongoose.Schema({
+  time       : String, 
+  players    : [String]
+}),
+Game = mongoose.model('Game', Schema);
+mongoose.connect(MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 
+
+let players = [], nextGame = undefined;
 eb.on('next-game', (obj) => {
     console.log('clearing players')
 
-    if  (nextGame.time != obj.nextGame.time) {
+    if (nextGame.time != obj.nextGame.time) {
 
       nextGame = obj.nextGame
-      console.log('setting storage')
-      storage.setItemSync(nextGame.time, []);
+      console.log('setting new game')
+
+      let newGame = Game({
+        time: nextGame.time,
+        players: []
+      });
+
+      newGame.save()
+      .then(doc => { console.log('game saved'); })
+      .catch(err => { console.log('save failed'); console.error(err) });
 
       io.emit('update', {
         players: [],
         nextGame: nextGame
       });
-
-    }    
+    }
 })
+
+if (process.env.ENV !== 'local') {
+  app.use(express.static('./build'));  
+}
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, './build', 'index.html'));
+});
 
 app.post('/players/:name', function(req, res){
 
-    let players = storage.getItemSync(nextGame.time);
+  Game.findOneAndUpdate(
+    { time: nextGame.time },
+    { $push: { players: req.params.name  } },
+    { upsert: true, returnNewDocument: true, new: true },
+    (error, game) => {
+      if (error) console.log(error);
 
-    console.log(nextGame)
-    console.log(players)
-
-    players.push(req.params.name)
-    storage.setItemSync(nextGame.time, players)
-
-    io.emit('update', {
-      players: players,
-      nextGame: nextGame
+      const resp = {
+        players: game.players,
+        nextGame
+      };
+      console.log(resp);
+      
+      io.emit('update', {
+        players: game.players,
+        nextGame
+      });
     });
 
     res.send();
-})
+});
 
 app.get('/players', function(req, res){
-    
-    if (! nextGame) {
-      nextGame = gm.getNextGame();
-    }
-    let players = storage.getItemSync(nextGame.time)
 
-    console.log(players)
-
-    let resp = {
-      players: players,
-      nextGame: nextGame
-    }
-
-    io.emit('update', resp);
+  Game.findOne({ time: nextGame.time })  
+    .then(game => {
+      console.log('game found');
+      console.log(game)
+      io.emit('update', {
+        players: game.players,
+        nextGame
+      })
+    });
 
     res.send();
 })
 
 app.delete('/players/:name', function(req, res){
 
-    let players = storage.getItemSync(nextGame.time)
-    players = _.without(players, req.params.name)
-    storage.setItemSync(nextGame.time, players)
+  Game.findOneAndUpdate(
+    { time: nextGame.time },
+    { $pullAll: { players: [req.params.name]  } },
+    { upsert: true, returnNewDocument: true, new: true },
+    function (error, game) {
+        if (error) console.log(error);
 
-    io.emit('update', {
-      players: players,
-      nextGame: nextGame
+        console.log(game);
+        
+        io.emit('update', {
+          players: game.players,
+          nextGame
+        });
     });
 
     res.send();
-
 })
 
+const PORT = (process.env.ENV === 'local' ? 3001 :  process.env.PORT || 3000);
 
-server.listen(3001, function(){
-  console.log('server up and running on 3001')
-
+server.listen(PORT, function(){
+  console.log('server up and running on ' + PORT)
+  
   nextGame = gm.getNextGame();
-  console.log('Next game on: ' + nextGame)
+  console.log('Next game on: ' + JSON.stringify(nextGame));
 
-  storage.init().then(function(){
-    
-    let players = storage.getItemSync(nextGame.time)
+  Game.findOne({ time: nextGame.time }).exec(function(err, game) {
+    if (err) console.log(errors);
+
+    let players = game ? game.players : undefined;
 
     if (! players) {
       console.log('Setting game on startup')
-      storage.setItemSync(nextGame.time, []);
+      
+      let newGame = Game({
+        time: nextGame.time,
+        players: []
+      });
+      newGame.save()
+      .then(doc => {
+        console.log('game saved');
+      })
+      .catch(err => {
+        console.log('save failed');
+        console.error(err)
+      })
+
     } else {
       console.log('Game already setup')
     }
-
-  });
-  
+  })
 });
