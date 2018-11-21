@@ -11,9 +11,9 @@ const DAYS = {
 };
 
 const GAMES = [ // Should be sorted by day and then hour
-    { day: DAYS.WEDNESDAY, hour: 12, min: 0 },
+    { day: DAYS.WEDNESDAY, hour: 11, min: 0 },
     { day: DAYS.THURSDAY, hour: 11, min: 45 },
-    { day: DAYS.FRIDAY, hour: 12, min: 0 }
+    { day: DAYS.FRIDAY, hour: 11, min: 0 }
 ];
 
 const JD_MORGAN = {
@@ -30,10 +30,17 @@ const JACK_FISHER = {
     min: 6  
 }
 
+const CREEKSIDE = {
+    name: 'Creekside Turf Sports Park',
+    address: '930 University Ave, Los Gatos, CA 95032',
+    map: 'https://goo.gl/maps/MTDxuFUC2RT2',
+    min: 8
+}
+
 const VENUES = {
-    [DAYS.WEDNESDAY]: JD_MORGAN,
+    [DAYS.WEDNESDAY]: CREEKSIDE,
     [DAYS.FRIDAY]: JD_MORGAN,
-    [DAYS.THURSDAY]: JACK_FISHER
+    [DAYS.THURSDAY]: CREEKSIDE
 }
 
 const RESET_TIME = .30;
