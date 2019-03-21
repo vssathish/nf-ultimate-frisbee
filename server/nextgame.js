@@ -13,7 +13,7 @@ const DAYS = {
 const GAMES = [ // Should be sorted by day and then hour
     { day: DAYS.WEDNESDAY, hour: 11, min: 0 },
     { day: DAYS.THURSDAY, hour: 11, min: 45 },
-    { day: DAYS.FRIDAY, hour: 11, min: 0 }
+    { day: DAYS.FRIDAY, hour: 12, min: 0 }
 ];
 
 const JD_MORGAN = {
