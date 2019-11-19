@@ -11,9 +11,9 @@ const DAYS = {
 };
 
 const GAMES = [ // Should be sorted by day and then hour
-    { day: DAYS.WEDNESDAY, hour: 12, min: 0 },
+    { day: DAYS.WEDNESDAY, hour: 11, min: 0 },
     { day: DAYS.THURSDAY, hour: 12, min: 0 },
-    { day: DAYS.FRIDAY, hour: 12, min: 0 }
+    { day: DAYS.FRIDAY, hour: 11, min: 0 }
 ];
 
 const JD_MORGAN = {
@@ -27,7 +27,7 @@ const JACK_FISHER = {
     name: 'Jack Fischer Park',
     address: 'Abbott Ave & Pollard Road, Campbell, CA 95008',
     map: 'https://goo.gl/maps/LukrVq8mEJq',
-    min: 6  
+    min: 6
 }
 
 const CREEKSIDE = {
@@ -38,9 +38,9 @@ const CREEKSIDE = {
 }
 
 const VENUES = {
-    [DAYS.WEDNESDAY]: JD_MORGAN,
+    [DAYS.WEDNESDAY]: CREEKSIDE,
     [DAYS.THURSDAY]: JACK_FISHER,
-    [DAYS.FRIDAY]: JD_MORGAN
+    [DAYS.FRIDAY]: CREEKSIDE
 }
 
 const RESET_TIME = .30;
