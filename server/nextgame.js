@@ -30,6 +30,13 @@ const JACK_FISHER = {
     min: 6
 }
 
+const FRANK_SANTANA = {
+    name: 'Frank Santana',
+    address: '511 S Monroe St, San Jose, CA 95128',
+    map: 'https://goo.gl/maps/ryyo7nf9LHHyay4B9',
+    min: 6
+}
+
 const CREEKSIDE = {
     name: 'Creekside Turf Sports Park',
     address: '930 University Ave, Los Gatos, CA 95032',
@@ -39,7 +46,7 @@ const CREEKSIDE = {
 
 const VENUES = {
     [DAYS.WEDNESDAY]: CREEKSIDE,
-    [DAYS.THURSDAY]: JACK_FISHER,
+    [DAYS.THURSDAY]: FRANK_SANTANA,
     [DAYS.FRIDAY]: CREEKSIDE
 }
 
