@@ -41,7 +41,7 @@ const CREEKSIDE = {
     name: 'Creekside Turf Sports Park',
     address: '930 University Ave, Los Gatos, CA 95032',
     map: 'https://goo.gl/maps/MTDxuFUC2RT2',
-    min: 8
+    min: 6
 }
 
 const VENUES = {
