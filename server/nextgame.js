@@ -13,7 +13,7 @@ const DAYS = {
 const GAMES = [ // Should be sorted by day and then hour
     { day: DAYS.WEDNESDAY, hour: 11, min: 0 },
     { day: DAYS.THURSDAY, hour: 12, min: 0 },
-    { day: DAYS.FRIDAY, hour: 11, min: 0 }
+    { day: DAYS.FRIDAY, hour: 12, min: 0 }
 ];
 
 const JD_MORGAN = {
@@ -44,10 +44,17 @@ const CREEKSIDE = {
     min: 6
 }
 
+const JOHN_MISE = {
+    name: 'John Mise Park',
+    address: 'Park Meadow Dr, San Jose, CA 95129',
+    map: 'https://goo.gl/maps/oCGNWyr8GZELopAL8',
+    min: 6
+}
+
 const VENUES = {
     [DAYS.WEDNESDAY]: CREEKSIDE,
     [DAYS.THURSDAY]: FRANK_SANTANA,
-    [DAYS.FRIDAY]: CREEKSIDE
+    [DAYS.FRIDAY]: JOHN_MISE
 }
 
 const RESET_TIME = .30;
