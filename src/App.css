@@ -38,6 +38,10 @@ strong {
   margin-top: 0.5rem;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .details-link {
   text-decoration: none;
   color: hsl(357, 92%, 27%);
