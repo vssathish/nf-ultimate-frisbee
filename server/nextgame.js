@@ -20,10 +20,10 @@ const JD_MORGAN = {
     name: 'John D. Morgan Park',
     address: 'Budd Ave, Campbell, CA 95008',
     map: 'https://www.google.com/maps/@37.281233,-121.9568356,19z',
-    min: 8
+    min: 6
 }
 
-const JACK_FISHER = {
+const JACK_FISCHER = {
     name: 'Jack Fischer Park',
     address: 'Abbott Ave & Pollard Road, Campbell, CA 95008',
     map: 'https://goo.gl/maps/LukrVq8mEJq',
@@ -57,6 +57,12 @@ const VENUES = {
     [DAYS.FRIDAY]: JOHN_MISE
 }
 
+const DETAILS = {
+    [DAYS.WEDNESDAY]: 'https://pickupultimate.com/map/view/netflix',
+    [DAYS.THURSDAY]: 'https://pickupultimate.com/map/view/roku',
+    [DAYS.FRIDAY]: 'https://pickupultimate.com/map/view/netflix'
+}
+
 const RESET_TIME = .30;
 
 /**
@@ -81,7 +87,8 @@ const getNextGame = function(mmt) {
 
     return {
         time: formattedNextGame,
-        venue: VENUES[nextGame.day]
+        venue: VENUES[nextGame.day],
+        details: DETAILS[nextGame.day]
     }
 };
 

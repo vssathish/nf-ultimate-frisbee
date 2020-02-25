@@ -56,8 +56,8 @@ class App extends Component {
         <header className="header">
             <h1 className="title">Netflix <strong>Ultimate</strong> Pickup</h1>
             <p className="next-game">
-              Next Game: <strong>{nextGame.time}</strong>&nbsp;
-              (<a className="details-link" target="_blank" rel="noopener noreferrer" href="https://pickupultimate.com/map/view/netflix">Details</a>)
+              Next Game: <strong>{nextGame.time}</strong>&nbsp; 
+              (<a className="details-link" target="_blank" rel="noopener noreferrer" href={nextGame.details}>Details</a>)
             </p>
             <p className="next-game-venue">
               Venue: <strong>
