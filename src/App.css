@@ -48,6 +48,12 @@ a:hover {
   transition: color 0.2s;
 }
 
+blockquote {
+  font: 14px/22px normal helvetica, sans-serif;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .next-game-venue {
   padding-top: 10px;
 }

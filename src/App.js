@@ -55,6 +55,15 @@ class App extends Component {
       <div className="App">
         <header className="header">
             <h1 className="title">Netflix <strong>Ultimate</strong> Pickup</h1>
+            <p className="next-game"><strong>Games on hold per guidance from <a href="https://www.sccgov.org/sites/phd/DiseaseInformation/novel-coronavirus/Pages/COVID-19-Guidance-031320.aspx">Santa Clara County</a><br/>
+and solid reasoning from Eric De Mund of <a href="https://groups.google.com/forum/#!msg/encinal-ultimate/yQ3OHTtUEYs/vuShnKMKDQAJ">Encinal Ultimate</a>:</strong>
+<blockquote>
+"Ultimate is an activity where I can't reliably maintain a six foot gap between myself and others;<br/>
+furthermore, the marker is facing the thrower while loudly and forcefully calling the stall count at<br/>
+very close quarters. (This leaves aside that the disc is a flat surface that we're all repeatedly <br/>
+touching with perspiring hands.)"
+</blockquote>
+</p>
             <p className="next-game">
               Next Game: <strong>{nextGame.time}</strong>&nbsp; 
               (<a className="details-link" target="_blank" rel="noopener noreferrer" href={nextGame.details}>Details</a>)
