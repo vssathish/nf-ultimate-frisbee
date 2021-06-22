@@ -12,10 +12,10 @@ const DAYS = {
 
 const GAMES = [ // Should be sorted by day and then hour
     { day: DAYS.WEDNESDAY, hour: 12, min: 0 },
+    { day: DAYS.THURSDAY, hour: 17, min: 45 },
     { day: DAYS.FRIDAY, hour: 12, min: 0 }
 ];
 
-// { day: DAYS.THURSDAY, hour: 12, min: 0 },
 
 const JD_MORGAN = {
     name: 'John D. Morgan Park',
@@ -52,9 +52,16 @@ const JOHN_MISE = {
     min: 6
 }
 
+const MANGO = {
+    name: 'Mango Park',
+    address: 'Mango Ave, Sunnyvale, CA 94087',
+    map: 'https://goo.gl/maps/EEoEJYCcH3mu8KmV9',
+    min: 6
+}
+
 const VENUES = {
     [DAYS.WEDNESDAY]: JD_MORGAN,
-    [DAYS.THURSDAY]: FRANK_SANTANA,
+    [DAYS.THURSDAY]: MANGO,
     [DAYS.FRIDAY]: JD_MORGAN
 }
 
