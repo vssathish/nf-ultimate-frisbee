@@ -65,6 +65,9 @@ class App extends Component {
               </strong>
               <a className="details-link" target="_blank" rel="noopener noreferrer" href={venue.map}>{venue.address}</a>
             </p>
+            <p className="next-game">
+              (List will be reset one hour after "current game" starts. E.g. you can't sign up for Friday until after Thursday's game.)
+            </p>
         </header>
 
         <section>
