@@ -21,7 +21,7 @@ const JD_MORGAN = {
     name: 'John D. Morgan Park',
     address: 'Budd Ave, Campbell, CA 95008',
     map: 'https://www.google.com/maps/@37.281233,-121.9568356,19z',
-    min: 6
+    min: 8
 }
 
 const JACK_FISCHER = {
