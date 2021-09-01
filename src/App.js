@@ -68,7 +68,8 @@ class App extends Component {
             <p className="next-game">
                Block the time on your calendar!
                <a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MDQ4b2tqZHRsZGIyYmdmNGk4YTI3czhxdTdfMjAyMTA5MDFUMTkwMDAwWiBkYXJyeWwubGVlQG0&amp;tmsrc=darryl.lee%40gmail.com&amp;scp=ALL">Wed</a> |
-               <a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MDYyc3NtazB0Y3Rsa3VkbjRrNHZyOXNqYTBfMjAyMTA5MDNUMTkwMDAwWiBkYXJyeWwubGVlQG0&amp;tmsrc=darryl.lee%40gmail.com&amp;scp=ALL">Fri</a><br>
+               <a target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&amp;tmeid=MDYyc3NtazB0Y3Rsa3VkbjRrNHZyOXNqYTBfMjAyMTA5MDNUMTkwMDAwWiBkYXJyeWwubGVlQG0&amp;tmsrc=darryl.lee%40gmail.com&amp;scp=ALL">Fri</a>
+               <br />
                <img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif" />
             </p>
             <p className="next-game">
