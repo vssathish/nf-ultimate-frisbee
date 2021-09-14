@@ -60,9 +60,9 @@ const MANGO = {
 }
 
 const VENUES = {
-    [DAYS.WEDNESDAY]: JD_MORGAN,
+    [DAYS.WEDNESDAY]: JOHN_MISE,
     [DAYS.THURSDAY]: MANGO,
-    [DAYS.FRIDAY]: JD_MORGAN
+    [DAYS.FRIDAY]: JOHN_MISE
 }
 
 const DETAILS = {
