@@ -49,7 +49,7 @@ const JOHN_MISE = {
     name: 'John Mise Park',
     address: 'Park Meadow Dr, San Jose, CA 95129',
     map: 'https://goo.gl/maps/oCGNWyr8GZELopAL8',
-    min: 6
+    min: 8
 }
 
 const MANGO = {
