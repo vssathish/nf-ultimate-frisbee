@@ -45,10 +45,17 @@ const CREEKSIDE = {
     min: 6
 }
 
+const CREEKSIDE_CUP = {
+    name: 'Creekside Park',
+    address: '10455 Miller Ave, Cupertino, CA 95014',
+    map: 'https://goo.gl/maps/7HvokgYZFsijn9TN7',
+    min: 8
+}
+
 const JOHN_MISE = {
     name: 'John Mise Park',
-    address: 'Park Meadow Dr, San Jose, CA 95129',
-    map: 'https://goo.gl/maps/oCGNWyr8GZELopAL8',
+    address: 'John Mise Ct, San Jose, CA 95129',
+    map: 'https://goo.gl/maps/vvQXfGqnXznfwXyZ8',
     min: 8
 }
 
@@ -62,7 +69,7 @@ const MANGO = {
 const VENUES = {
     [DAYS.WEDNESDAY]: JOHN_MISE,
     [DAYS.THURSDAY]: MANGO,
-    [DAYS.FRIDAY]: JOHN_MISE
+    [DAYS.FRIDAY]: CREEKSIDE_CUP
 }
 
 const DETAILS = {
