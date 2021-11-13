@@ -71,7 +71,7 @@ class App extends Component {
                <img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif" />
             </p>
             <p className="next-game">
-              (Please bring water, and both a white and dark shirt. Cleats optional.)
+              (Please bring water, and both a white and dark shirt. Vaccination preferred. Cleats optional.)
             </p>
         </header>
 
