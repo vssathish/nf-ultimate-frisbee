@@ -20,7 +20,7 @@ const GAMES = [ // Should be sorted by day and then hour
 const JD_MORGAN = {
     name: 'John D. Morgan Park',
     address: 'Budd Ave, Campbell, CA 95008',
-    map: 'https://www.google.com/maps/@37.281233,-121.9568356,19z',
+    map: 'https://goo.gl/maps/kVcj8YexLuMiErtW6',
     min: 8
 }
 
