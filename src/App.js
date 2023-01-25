@@ -73,7 +73,8 @@ class App extends Component {
             <p className="next-game">
               (Please bring water, and both a white and dark shirt. Vaccination preferred. Cleats optional.)
             </p>
-            <p><b><font color="red">PLEASE ENTER DATA AND CLICK SIGN-UP! I BROKE THE CODE SO IT DOESN'T POPULATE UNLESS YOU SEND SOMETHING FIRST. :-{ </font></b>
+            <p className="next-game">
+              PLEASE ENTER DATA AND CLICK SIGN-UP! I BROKE SOMETHING AND IT WON'T LOAD UNTIL IT GETS SOMETHING.
             </p>
         </header>
 
