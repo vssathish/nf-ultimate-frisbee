@@ -74,7 +74,7 @@ class App extends Component {
               (Please bring water, and both a white and dark shirt. Vaccination preferred. Cleats optional.)
             </p>
             <p className="next-game">
-              PLEASE ENTER DATA AND CLICK SIGN-UP! I BROKE SOMETHING AND IT WON'T LOAD UNTIL IT GETS SOMETHING.
+              IF YOU DON'T SEE TIME/PLACE ABOVE, PLEASE ENTER AND CLICK SIGN-UP TO SEE PLAYERS! SITE IS SLIGHTLY BROKEN.
             </p>
         </header>
 
