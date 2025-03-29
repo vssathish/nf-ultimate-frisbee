@@ -1,0 +1,3 @@
+server/nextgame.js - change schedule
+src/App.js - edit header, etc.
+npm run build
