@@ -66,10 +66,17 @@ const MANGO = {
     min: 6
 }
 
+const QUITO = {
+    name: 'El Quito Park',
+    address: '12855 Paseo Presada, Saratoga, CA 95070',
+    map: 'https://maps.app.goo.gl/5WGoKBqc1qh4ddZM6',
+    min: 6
+}
+
 const VENUES = {
-    [DAYS.WEDNESDAY]: JOHN_MISE,
+    [DAYS.WEDNESDAY]: QUITO,
     [DAYS.THURSDAY]: MANGO,
-    [DAYS.FRIDAY]: JOHN_MISE
+    [DAYS.FRIDAY]: QUITO
 }
 
 const DETAILS = {
